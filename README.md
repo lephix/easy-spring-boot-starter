@@ -56,8 +56,9 @@ public class Generator {
 ### 命名规范
 
 #### 代码命名规范
-- 实体类：大写开头的驼峰命名，例如`User`
+- 实体类：大写开头的驼峰命名，例如`User`。
 - 与实体类相关的类：包括Repository, Service, Controller等，都已`实体类名 + 类型`进行命名，例如`UserRepository`。
 
 #### 数据库表名
-- 表名
+- 表名：表名采用单词+下划线的命名，例如`love_song`。
+- 字段名：同表名命名规范。
