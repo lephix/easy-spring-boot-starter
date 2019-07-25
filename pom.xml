@@ -6,7 +6,25 @@
 
     <groupId>com.lephix</groupId>
     <artifactId>easy-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+    <name>Easy SpringBoot Starter</name>
+    <description>
+        This is a starter for creating a project quickly.
+        There are some conventions when importing this starter, configuration could change those behaviors.
+    </description>
+    <developers>
+        <developer>
+            <name>Lephix</name>
+            <email>lephix@163.com</email>
+            <url>http://www.lephix.com</url>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/lephix/easy-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:git@github.com:lephix/easy-spring-boot-starter.git</developerConnection>
+        <url>https://github.com/lephix/easy-spring-boot-starter</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -92,6 +110,37 @@
         </dependency>
     </dependencies>
 
+    <!-- GPG Signature on release -->
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -151,14 +200,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-    <scm>
-        <connection>scm:git:git://github.com/lephix/easy-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:git@github.com:lephix/easy-spring-boot-starter.git</developerConnection>
-        <url>https://github.com/lephix/easy-spring-boot-starter</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <dependencyManagement>
         <dependencies>
