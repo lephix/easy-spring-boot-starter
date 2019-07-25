@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lephix</groupId>
@@ -10,6 +11,14 @@
         This is a starter for creating a project quickly.
         There are some conventions when importing this starter, configuration could change those behaviors.
     </description>
+    <url>https://github.com/lephix/easy-spring-boot-starter</url>
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://github.com/lephix/easy-spring-boot-starter/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <developers>
         <developer>
             <name>Lephix</name>
