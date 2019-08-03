@@ -22,7 +22,7 @@ easy-spring-boot-starter是一个基于配置的Restful Web开发框架。根据
 <dependency>
     <groupId>com.lephix</groupId>
     <artifactId>easy-spring-boot-starter</artifactId>
-    <version>${easy-version}</version>
+    <version>1.1</version>
 </dependency>
 ```
 

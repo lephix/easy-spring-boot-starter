@@ -30,12 +30,12 @@ public class CodeGenerator {
     public static final String F_NAME = "name";
 
     public enum ORMapping {
-        VARCHAR("String"),
-        TEXT("String"), TINYTEXT("String"), LONGTEXT("String"),
+        VARCHAR("String"), TEXT("String"), TINYTEXT("String"), LONGTEXT("String"),
         INT("Integer"), TINYINT("Integer"), SMALLINT("Integer"),
         BIGINT("Long"),
         DOUBLE("Double"), FLOAT("Double"), REAL("Double"),
-        DATE("Timestamp"), DATETIME("Timestamp"), TIMESTAMP("Timestamp");
+        DATE("Timestamp"), DATETIME("Timestamp"), TIMESTAMP("Timestamp"),
+        BIT("Boolean");
 
         public final String className;
 
@@ -205,7 +205,7 @@ public class CodeGenerator {
         File file = new File(path);
         if (!file.exists()) {
             if (!file.getParentFile().exists()) {
-                checkState(file.getParentFile().mkdir(), "Create parent directory failed.");
+                checkState(file.getParentFile().mkdirs(), "Create parent directory failed.");
             }
         }
         return file;
