@@ -48,7 +48,7 @@ easy:
 
 在项目的`src/main/java`的任何包名下创建一个`Generator`类，示例如下。运行`main`函数之后，将快速生成`entity`, `repository`, `service`, `controller`相关类。至此基本的增删改查后台功能就已经完成。
 
-```text
+```java
 public class Generator {
     public static void main(String[] args) throws Exception {
         CodeGenerator cg = new CodeGenerator("com.lephix.easy-example", null, 
