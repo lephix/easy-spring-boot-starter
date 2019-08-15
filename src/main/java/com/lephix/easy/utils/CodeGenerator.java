@@ -77,7 +77,7 @@ public class CodeGenerator {
                 if (rs.getString("COLUMN_NAME").equalsIgnoreCase("id")) {
                     continue;
                 }
-                Map<String, Object> fieldMap = MapHelper.<String>getInstance()
+                Map<String, Object> fieldMap = MapHelper.<String, Object>getInstance()
                         .add(F_NAME, LOWER_UNDERSCORE.to(LOWER_CAMEL, rs.getString("COLUMN_NAME")))
                         .add(F_TYPE, ORMapping.valueOf(rs.getString("TYPE_NAME")).className)
                         .build();

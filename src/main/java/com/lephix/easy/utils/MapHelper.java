@@ -3,17 +3,22 @@ package com.lephix.easy.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapHelper<T> {
+public class MapHelper<K, V> {
 
-    private Map<T, Object> map;
+    private Map<K, V> map;
 
-    public static <T> MapHelper<T> getInstance() {
+    public static <K, V> MapHelper<K, V> getInstance() {
         return new MapHelper<>();
     }
 
-    public static <T> MapHelper<T> getInstance(int size) {
-        return new MapHelper<>();
+    public static <K, V> MapHelper<K, V> getInstance(int size) {
+        return new MapHelper<>(size);
     }
+
+    public static <K, V> MapHelper<K, V> getInstance(Map<K, V> map) {
+        return new MapHelper<>(map);
+    }
+
 
     private MapHelper() {
         map = new HashMap<>();
@@ -23,16 +28,16 @@ public class MapHelper<T> {
         map = new HashMap<>(size);
     }
 
-    private MapHelper(Map<T, Object> map) {
+    private MapHelper(Map<K, V> map) {
         this.map = map;
     }
 
-    public MapHelper<T> add(T key, Object value) {
+    public MapHelper<K, V> add(K key, V value) {
         map.put(key, value);
         return this;
     }
 
-    public Map<T, Object> build() {
+    public Map<K, V> build() {
         return map;
     }
 }
