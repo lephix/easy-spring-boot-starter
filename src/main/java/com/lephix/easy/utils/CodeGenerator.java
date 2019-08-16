@@ -1,6 +1,5 @@
 package com.lephix.easy.utils;
 
-import com.google.common.base.CaseFormat;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +17,10 @@ import java.sql.ResultSet;
 import java.util.*;
 
 import static com.google.common.base.CaseFormat.*;
-import static com.google.common.base.Preconditions.checkState;
 import static java.io.File.separator;
 import static org.apache.commons.lang3.StringUtils.capitalize;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.springframework.util.Assert.isTrue;
 
 @Slf4j
 public class CodeGenerator {
@@ -108,7 +107,7 @@ public class CodeGenerator {
 
     public void generateAll() throws Exception {
         for (String entityName : entityFieldsMap.keySet()) {
-            checkState(StringUtils.equals(capitalize(entityName), entityName), "entityName must be capitalized");
+            isTrue(StringUtils.equals(capitalize(entityName), entityName), "entityName must be capitalized");
             generateEntity(entityName);
             generateJpaRepository(entityName);
             generateService(entityName);
@@ -194,9 +193,9 @@ public class CodeGenerator {
         File file = new File(path);
         if (!file.exists()) {
             if (!file.getParentFile().exists()) {
-                checkState(file.getParentFile().mkdir(), "Create parent directory failed.");
+                isTrue(file.getParentFile().mkdir(), "Create parent directory failed.");
             }
-            checkState(file.createNewFile(), "Create file failed.");
+            isTrue(file.createNewFile(), "Create file failed.");
         }
         return file;
     }
@@ -205,7 +204,7 @@ public class CodeGenerator {
         File file = new File(path);
         if (!file.exists()) {
             if (!file.getParentFile().exists()) {
-                checkState(file.getParentFile().mkdirs(), "Create parent directory failed.");
+                isTrue(file.getParentFile().mkdirs(), "Create parent directory failed.");
             }
         }
         return file;

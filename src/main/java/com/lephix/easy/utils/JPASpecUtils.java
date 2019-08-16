@@ -2,14 +2,13 @@ package com.lephix.easy.utils;
 
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.criteria.Expression;
 import java.lang.reflect.Field;
 import java.util.List;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 public class JPASpecUtils {
 
@@ -20,7 +19,7 @@ public class JPASpecUtils {
     @SuppressWarnings("unchecked")
     public static <T> Specification<T> of(T t, String fieldName, OP op, Object value) {
         Entity entity = AnnotationUtils.findAnnotation(t.getClass(), Entity.class);
-        checkNotNull(entity, "Only support for the class with @Entity annotation.");
+        Assert.notNull(entity, "Only support for the class with @Entity annotation.");
 
         if (value == null && op != OP.IS_NULL && op != OP.IS_NOT_NULL) {
             return null;
